@@ -1,17 +1,25 @@
 {
   "name": "ember-cli-es6-transform",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Import ES6 modules from npm, bower or anywhere else in your app.",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "es6 modules",
+    "ember-cli",
+    "ember",
+    "import",
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Sander Melnikov <sander@sandydoo.me>",
+  "homepage": "https://github.com/sandydoo/ember-cli-es6-transform",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sandydoo/ember-cli-es6-transform"
+  },
   "scripts": {
     "build": "ember build",
     "start": "ember server",
