@@ -14,7 +14,7 @@ module.exports = {
       'es6': {
         transform(tree, options) {
           const babelOptions = babel.buildBabelOptions();
-          es6Transform(tree, babelOptions, options);
+          return es6Transform(tree, babelOptions, options);
         },
 
         processOptions(assetPath, entry, options) {
@@ -25,7 +25,7 @@ module.exports = {
           }
 
           options[assetPath] = {
-            as: entry.as,
+            as: entry.as
           };
 
           return options;
