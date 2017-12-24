@@ -6,6 +6,8 @@ const es6Transform = require('./es6-transform');
 module.exports = {
   name: 'ember-cli-es6-transform',
 
+  es6Transform,
+
   importTransforms() {
     const babel = this.project.findAddonByName('ember-cli-babel');
     return {
