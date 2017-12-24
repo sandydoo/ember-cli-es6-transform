@@ -90,8 +90,8 @@ return app.toTree(tree);
 
 * `git clone <repository-url>` this repository
 * `cd ember-cli-es6-transform`
-* `npm install`
+* `yarn install`
 
 ### Running Tests
 
-* `npm test`
+* `yarn test`
