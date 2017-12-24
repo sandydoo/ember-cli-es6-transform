@@ -1,7 +1,7 @@
 /* eslint-env node */
 'use strict';
 
-const BabelTranspiler = require('broccoli-babel-transpiler');
+const es6Transform = require('./es6-transform');
 
 module.exports = {
   name: 'ember-cli-es6-transform',
@@ -11,13 +11,8 @@ module.exports = {
     return {
       'es6': {
         transform(tree, options) {
-          const babelOptions = babel.buildBabelOptions({
-            moduleIds: true,
-            getModuleId: (moduleName) => {
-              return options[`${moduleName}.js`].as;
-            }
-          });
-          return new BabelTranspiler(tree, babelOptions);
+          const babelOptions = babel.buildBabelOptions();
+          es6Transform(tree, babelOptions, options);
         },
 
         processOptions(assetPath, entry, options) {
