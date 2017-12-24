@@ -4,7 +4,7 @@
 
 ## Requirements
 
-**Only works with** `ember-cli@2.16+`.
+`app.import` and custom `transformations` require `ember-cli@2.16+`.
 
 ## Why
 
@@ -16,7 +16,10 @@
 
 ## Usage
 
+#### Importing a single (file) dependency
+
 Define the transformation when importing the ES6 module in your `ember-cli-build.js`. The syntax is the same as the built-in `amd` transform.
+Remember that `app.import` only works one file at a time!
 
 Options:
 
@@ -32,10 +35,53 @@ app.import('node_modules/spin.js/spin.js', {
 });
 ```
 
-In your app, you can then import the module using the name you specified in `as`:
+In your app, you can then import the module using the name you specified in `as`.
 
 ```js
 import { Spinner } from 'spin.js';
+```
+
+#### Importing more than one file at once *(risky)*
+
+If you have several files to import, you could probably use a funnel. This won't resolve any dependencies for you though. If your imported file imports another file you forgot to include – you're out of luck. You would need a better build tool, like Rollup, for that. In your `ember-cli-build.js`:
+
+```js
+const Funnel = require('broccoli-funnel');
+const { es6Transform } = require('ember-cli-es6-transform');
+
+// Fetch your files.
+let tree = new Funnel('node_modules/some-package', {
+  include: ['some-folder/*.js']
+});
+
+// Pass a function to `getModuleId` define a custom module name.
+// Let's remove the parent directories from the module name.
+const babelOptions = {
+  getModuleId: (moduleName) => moduleName.split('/').slice(2, -1).join('/')
+};
+
+// Run ember-cli-babel on the tree.
+tree = es6Transform(tree, babelOptions);
+
+// Add it to the app.
+return app.toTree(tree);
+```
+
+#### Using Rollup *(untested)*
+
+[WIP] This is completely untested, but should probably work.
+
+```js
+const Rollup = require('broccoli-rollup');
+
+// Generate a tree with Rollup.
+let tree = new Rollup(...);
+
+// Transpile the tree.
+tree = es6Transform(tree);
+
+// Add it to the app.
+return app.toTree(tree);
 ```
 
 ## Contributing
@@ -46,19 +92,6 @@ import { Spinner } from 'spin.js';
 * `cd ember-cli-es6-transform`
 * `npm install`
 
-### Running
-
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
 ### Running Tests
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+* `npm test`
