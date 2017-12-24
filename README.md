@@ -1,5 +1,7 @@
 # ⚙️ ember-cli-es6-transform
 
+[![Build Status](https://travis-ci.org/sandydoo/ember-cli-es6-transform.svg?branch=master)](https://travis-ci.org/sandydoo/ember-cli-es6-transform)
+
 > Import ES6 modules from npm, bower or anywhere else in your Ember app.
 
 ## Requirements
