@@ -14,6 +14,6 @@ module.exports = function(tree, babelOptions = {}, options = {}) {
       }
     }
   };
-  const _babelOptions = Object.assign(defaultBabelOptions, babelOptions);
+  const _babelOptions = Object.assign({}, defaultBabelOptions, babelOptions);
   return new BabelTranspiler(tree, _babelOptions);
 }
