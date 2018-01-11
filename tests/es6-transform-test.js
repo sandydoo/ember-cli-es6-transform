@@ -4,12 +4,14 @@
 
 const co = require('co');
 const BroccoliTestHelper = require('broccoli-test-helper');
-const { createBuilder, createTempDir } = BroccoliTestHelper;
+const createBuilder = BroccoliTestHelper.createBuilder;
+const createTempDir = BroccoliTestHelper.createTempDir;
 const Rollup = require('broccoli-rollup');
 
 const es6Transform = require('../src/es6-transform');
 
-const { module: describe, test: it } = QUnit;
+const describe = QUnit.module;
+const it = QUnit.test;
 
 const babelOptions = {
   moduleIds: true,
