@@ -3,10 +3,13 @@
 
 const BabelTranspiler = require('broccoli-babel-transpiler');
 
-module.exports = function(tree, babelOptions = {}, options = {}) {
+module.exports = function(tree, babelOptions, options) {
+  babelOptions = babelOptions || {};
+  options = options || {};
   const defaultBabelOptions = {
-    getModuleId: (moduleName) => {
-      const assetOptions = options[`${moduleName}.js`];
+    getModuleId: function (moduleName) {
+      const moduleKey = moduleName + '.js';
+      const assetOptions = options[moduleKey];
       if (assetOptions) {
         return assetOptions.as;
       } else {
