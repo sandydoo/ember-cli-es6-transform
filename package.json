@@ -25,16 +25,16 @@
     "test": "qunit tests/**/*.js"
   },
   "dependencies": {
-    "ember-cli-babel": "^6.6.0"
+    "ember-cli-babel": "^6.16.0"
   },
   "devDependencies": {
-    "babel-core": "^6.14.0",
+    "babel-core": "^6.26.3",
     "babel-plugin-transform-es2015-modules-amd": "^6.24.1",
-    "babel-preset-env": "^1.5.1",
-    "broccoli-rollup": "^2.0.0",
-    "broccoli-test-helper": "^1.2.0",
+    "babel-preset-env": "^1.7.0",
+    "broccoli-rollup": "^2.1.1",
+    "broccoli-test-helper": "^1.4.0",
     "co": "^4.6.0",
-    "qunit": "^2.4.1",
+    "qunit": "^2.6.1",
     "qunit-eslint": "^2.0.0"
   },
   "engines": {
