@@ -1,3 +1,5 @@
+# Try using [ember-auto-import](https://github.com/ef4/ember-auto-import) before this addon.
+
 # ⚙️ ember-cli-es6-transform
 
 [![Build Status](https://travis-ci.org/sandydoo/ember-cli-es6-transform.svg?branch=master)](https://travis-ci.org/sandydoo/ember-cli-es6-transform)
@@ -10,11 +12,12 @@
 [Why](#why)  
 [Installation](#installation)  
 [Usage](#usage)  
-[I have a complex dependency](#i-have-a-complex-dependency)
 
 ## Requirements
 
-`app.import` and custom `transformations` require `ember-cli@2.16+`.
+`ember-cli@3.6` and greater.
+
+For older versions of `ember-cli`, use the `0.0.*` versions of this addon.
 
 ## Why
 
@@ -52,10 +55,6 @@ In your app, you can then import the module using the name you specified in `as`
 ```js
 import { Spinner } from 'spin.js';
 ```
-
-#### I have a complex dependency
-
-If you want to import a complex, multi-file dependency, your best bet right now is to use `broccoli-rollup` together with [ember-cli-node-modules-to-vendor](https://github.com/kellyselden/ember-cli-node-modules-to-vendor).
 
 ## Contributing
 
