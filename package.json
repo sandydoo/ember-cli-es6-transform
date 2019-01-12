@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-es6-transform",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Import ES6 modules from npm, bower or anywhere else in your app.",
   "keywords": [
     "ember-addon",
