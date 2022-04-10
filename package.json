@@ -11,7 +11,7 @@
   ],
   "main": "src/index.js",
   "license": "MIT",
-  "author": "Sander Melnikov <sander@sandydoo.me>",
+  "author": "Sander Melnikov <hey@sandydoo.me>",
   "homepage": "https://github.com/sandydoo/ember-cli-es6-transform",
   "directories": {
     "doc": "doc",
